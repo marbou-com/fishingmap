@@ -205,9 +205,9 @@
                         <div class="form-group">    
                             <p class="">{{$targetPlace}}で登録する</p><!--//場所指定-->
                         </div>
-                    @endif
+                        <input type="hidden" class="targetPlace" name="place" value="{{$targetPlace}}">
+                        @endif
                     <!--//場所指定-->
-                    <input type="hidden" class="targetPlace" name="place" value="{{$targetPlace}}">
                 
 
                 </fieldset>
