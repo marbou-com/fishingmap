@@ -336,7 +336,7 @@ function process_by_mode(lat_now, lng_now) {
                       '<div id="outStyle">'+
 		                      '<p><!--<img src="storage/images/img/'+logo_url+'" style="width:10%">-->'+nickname+'</p>'+
 		                      '<p>日時：'+datetime+'</p>'+
-		                      '<p><a rel="lightbox" href="http://127.0.0.1:8000/storage/images/'+img_url+'"><img id="imagePhoto" src="http://127.0.0.1:8000/storage/images/'+img_url+'"></a></p>'+
+		                      '<p><a rel="lightbox" href="//'+location.host+'/storage/images/'+img_url+'"><img id="imagePhoto" src="http://127.0.0.1:8000/storage/images/'+img_url+'"></a></p>'+
 		                      //'<p>住所：'+address+'</p>'+
 		                      '<p style="background: white;padding: 3%;text-align: left;color: gray;">'+comment+'</p>'+
                           '</div>'+
