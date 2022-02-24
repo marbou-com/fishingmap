@@ -16,4 +16,4 @@ yarn-error.log
 /readme*
 .DS_Store
 Thumbs.db
-/Const/Consts.php
+/Consts/Consts.php
