@@ -47,9 +47,9 @@ class HomeController extends Controller
         //     $posts=Post::latest()->get();
         // }
         if ($s_word=="nosearch") {//null（検索しない）か空検索    
-            $posts=Post::latest()->get();
+            $posts=Post::orderByRaw(" latitude ASC, longitude ASC ,created_at DESC")->get();
         }else{
-            $posts=Post::latest()->where('description', 'like', "%$s_word%")->get();
+            $posts=Post::orderByRaw(" latitude ASC, longitude ASC, created_at DESC")->where('description', 'like', "%$s_word%")->get();
 
         }
           
