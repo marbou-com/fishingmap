@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">{{Consts::SITE_NAME}}</a>
+                    <a class="navbar-brand" href="/">{{Consts::SITE_NAME}}</a>
                 </div><!-- /.navbar-header -->
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
