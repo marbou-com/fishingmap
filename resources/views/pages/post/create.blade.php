@@ -196,10 +196,10 @@
                     @if($targetPlace=="")
                         <div class="form-group">
                             <textarea
-                                class="form-control @error('place') is-invalid @enderror"
-                                name="place"
+                                class="form-control @error('newplace') is-invalid @enderror"
+                                name="newplace"
                                 placeholder="あたらしい釣り場を書いてください"
-                                >{{ old('place', $targetPlace) }}</textarea>
+                                >{{ old('newplace') }}</textarea>
                         </div>
                     @else
                         <div class="form-group">    

@@ -113,8 +113,13 @@ class PostController extends Controller
         $post->status=0;//未承認
         $post->latitude=$request->latitude;;//緯度
         $post->longitude=$request->longitude;;//経度
-        $post->place=$request->place;//場所
-        //dd($request->place);
+        if($request->newplace==""){
+            $post->place=$request->place;//場所
+        }else{
+            $post->place=$request->newplace;//場所
+        }
+        
+        //dd($post->place);
         $post->save();
 
 
