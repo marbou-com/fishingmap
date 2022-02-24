@@ -1,0 +1,20 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+/*
+.picture {
+    max-width:150px;
+}
+*/
+
+.badge {
+    margin: 0 10px;
+    font-size: 80%;
+}
+
+th {
+    white-space: nowrap;
+    text-align: center;
+}

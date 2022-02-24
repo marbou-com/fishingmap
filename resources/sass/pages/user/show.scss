@@ -1,0 +1,121 @@
+.p-user-show {
+  img {
+      display: block;
+  }
+
+  i {
+    font-size: 16px;
+  }
+  .btn {
+      display: inline-block;
+      font: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+      padding: 0;
+      cursor: pointer;
+  }
+
+  .btn:focus {
+      outline: 0.5rem auto #4d90fe;
+  }
+
+  .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  /* Loader */
+
+  .loader {
+      width: 5rem;
+      height: 5rem;
+      border: 0.6rem solid #999;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto;
+      animation: loader 500ms linear infinite;
+  }
+
+
+
+  /* Spinner Animation */
+
+  @keyframes loader {
+      to {
+          transform: rotate(360deg);
+      }
+  }
+
+  /*
+
+  The following code will only run if your browser supports CSS grid.
+
+  Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling. 
+
+  */
+
+  @supports (display: grid) {
+      .profile {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-template-rows: repeat(3, auto);
+          grid-column-gap: 3rem;
+          align-items: center;
+      }
+
+      .profile-image {
+          grid-row: 1 / -1;
+      }
+
+      .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+          grid-gap: 2rem;
+      }
+
+      .profile-image,
+      .profile-user-settings,
+      .profile-stats,
+      .profile-bio,
+      .gallery-item,
+      .gallery {
+          width: auto;
+          margin: 0;
+      }
+
+      @media (max-width: 40rem) {
+          .profile {
+              grid-template-columns: auto 1fr;
+              grid-row-gap: 1.5rem;
+          }
+
+          .profile-image {
+              grid-row: 1 / 2;
+          }
+
+          .profile-user-settings {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              grid-gap: 1rem;
+          }
+
+          .profile-edit-btn,
+          .profile-stats,
+          .profile-bio {
+              grid-column: 1 / -1;
+          }
+
+          .profile-user-settings,
+          .profile-edit-btn,
+          .profile-settings-btn,
+          .profile-bio,
+          .profile-stats {
+              margin: 0;
+          }
+      }
+  }
+}

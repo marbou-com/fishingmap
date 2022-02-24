@@ -1,0 +1,82 @@
+body {
+    /*background-color: #f8dce0;*/
+    background-image: url("../img_item/img_bkground_map.jpg")
+}
+
+#checkbox {
+    font-size: 85%;
+}
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: auto;
+    overflow: hidden;
+}
+
+.header h1 {
+    font-size: 2em;
+}
+
+.header h1 img {
+    max-width: 100%;
+}
+
+.footer {
+    border-top: solid 1px #ccc;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+
+
+/*Map*/
+#mapDiv { margin:0; height: 600px; width: 100%;}
+
+/*Map上のバルーン内*/
+#innerStyle{
+    color:#134A63;
+    height:20px;
+    width:98%;
+    border-style:solid;
+    padding:1px;
+    border-color:#CCBE28;
+    text-align:left;
+    border-width:1px;
+    background-color:#FFFFFD;
+}
+
+/*Map上のバルーン内*/
+#outStyle{
+    /*border-width:2px;*/
+    height:100%;
+    background-color:#E5F6FF;
+    width:200px;
+    /*border-style:solid;*/
+    /*border-color:#aaaaff;*/
+    padding:9px;
+}
+
+/*チェックボックスエリアエリア*/
+.filterInfo {
+    color:#000000;
+}
+
+/*Map上のバルーン内画像*/
+#imagePhoto {
+    width:180px;
+}
+
+/* 「チェックボックスエリア」ウィンドウ幅が980px以上の場合 */
+@media screen and (min-width:980px) {
+   .btnBig{ display: block; } /* 「チェックボックスエリア」表示 */
+   .btnSmall{ display: none; } /* 「チェックボックスエリア」非表示 */
+}
+ 
+/* 「チェックボックスエリア」ウィンドウ幅が980px未満の場合 */
+@media screen and (max-width: 979px) {
+   .btnBig{ display: none; } /* 「チェックボックスエリア」非表示 */
+   .btnSmall{ display: block; } /* 「チェックボックスエリア」表示 */
+} 
+
+
