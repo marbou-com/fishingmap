@@ -40,7 +40,7 @@
             
         }
     
-       /*
+       
        function initMap() {
         var target = document.getElementById('mapDiv');
         var empire = {lat:36.559007, lng:136.652444 };  
@@ -50,7 +50,7 @@
             zoom: 14
         });
         } 
-        */   
+        
     </script>
 </head>
 <body>
