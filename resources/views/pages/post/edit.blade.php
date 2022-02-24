@@ -14,7 +14,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtDYwL2zygagkBG2OA5KxNuqbxGGY0Zkk&callback=initMap" async defer></script>
+        <script src="{{Consts::MAPKEY_NAME}}" async defer></script>
         <script type="text/javascript" src="{{ asset('js/mobiscroll.custom-2.5.3.min.js') }}"></script>
         <script>
             $(function() {

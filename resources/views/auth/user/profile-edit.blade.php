@@ -15,7 +15,7 @@
         <![endif]-->
         <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet" /><!--画像拡大-->
         <script src="{{ asset('js/lightbox-2.6.min.js') }}"></script><!--画像拡大-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtDYwL2zygagkBG2OA5KxNuqbxGGY0Zkk&callback=initMap" async defer></script>
+        <script src="{{Consts::MAPKEY_NAME}}" async defer></script>
         <script>
 	        $(function () {
 			    //削除確認ダイアログ

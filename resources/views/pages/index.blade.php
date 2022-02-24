@@ -16,7 +16,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtDYwL2zygagkBG2OA5KxNuqbxGGY0Zkk&callback=initMap" async defer></script>
+        <script src="{{Consts::MAPKEY_NAME}}" async defer></script>
         <script type="text/javascript" src="{{ asset('js/photomap.js') }}"></script>
 	    <script src="{{ asset('js/lightbox-2.6.min.js') }}"></script><!--画像拡大-->
         <script>

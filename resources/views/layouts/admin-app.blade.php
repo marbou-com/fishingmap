@@ -19,7 +19,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtDYwL2zygagkBG2OA5KxNuqbxGGY0Zkk&callback=initMap" async defer></script>
+    <script src="{{Consts::MAPKEY_NAME}}" async defer></script>
     <script src="{{ asset('js/photomap.js') }}"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     
