@@ -151,12 +151,12 @@
         </div><!-- /.container -->
         </div><!-- /.navbar -->
 
-        <div class="container">
-            <div class="row">
+        <div class="container" >
+            <div class="row" id="app">
 
 
                 <!--マップ表示-->
-                <div class="col-xs-12 col-sm-9">
+                <div class="col-xs-12 col-sm-9" >
                     <div id="mapDiv"></div>
 
                     
@@ -169,41 +169,63 @@
                                         &nbsp;<a href="{{ route('users.show', ['user'=>$post->user->id]) }}">{{ $post->user->name }}</a>                   
                                 </div>
                             </div>
-                            <div class="">
+                            <div class="" >
                                 <img loading="lazy" src="{{ asset('storage/images/'.$post->img_url) }}" class="card-img-top" alt="" style="width:100%">
-                                <div class="caption">
+                                <div class="caption" >
                                     @auth
-                                    @if($post->is_like)
-                                        <!--いいね！削除-->
-                                        <form action="{{ route('likes.destroy', ['like'=> $post->like_id] ) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <input type="hidden" name="post_id" value="{{ $post->id }}" required>
-                                            <button type="submit" style="display:contents">
-                                                <i class="fas fa-heart"></i>
-        
-                                            </button>
-                                        </form>
-                                    @else
-                                        <!--いいね！-->
-                                        <form action="{{ route('likes.store') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                            <button type="submit" style="display:contents">
-                                                <i class="far fa-heart"></i>
-                                            </button>
-                                        </form>
-                                    @endif
+                                        {{-- @if($post->is_like)
+                                            <!--いいねしている-->
+                                            {{-- <form action="{{ route('likes.destroy', ['like'=> $post->like_id] ) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <input type="hidden" name="post_id" value="{{ $post->id }}" required>
+                                                <button type="submit" style="display:contents">
+                                                    <i class="fas fa-heart"></i>
+            
+                                                </button>
+                                            </form>  
+
+                                            <div >
+                                                <like-component
+                                                :post="{{ json_encode($post->id)}}"
+                                            ></like-component>
+                                            </div> 
+                                        @else
+                                            <!--いいねしていない-->
+                                            <form action="{{ route('likes.store') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                                <button type="submit" style="display:contents">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                            </form>  
+
+                                            <div >
+                                                <like-component
+                                                :post="{{ json_encode($post->id)}}"
+                                            ></like-component>
+                                            </div>                                      
+                                        @endif --}}
+
+                                        <div >
+                                            <like-component
+                                            :post="{{ json_encode($post->id)}}"
+                                        ></like-component>
+                                        </div> 
+
                                     @endauth
+
                                     <p class="card-text"> 
                                         <p>釣果日：{{ $post->datetimepicture }}</p>
                                         <p>場所：{{ $post->place }}</p>
                                         <p>メモ：{{Str::limit($post->description, 35, '…' )}}</p>
                                     </p>
+
                                     @foreach($post->tags as $tag)
                                         <!--<a href="{{ route('posts.index' ,['tag'=>$tag->name]) }}">#{{ $tag->name }}</a>-->               
                                         <a href="{{ route('index' ,['search'=>$tag->name]) }}">#{{ $tag->name }}</a>                  
                                     @endforeach
+
                                     <p class="card-text">
                                         <small class="text-muted">
                                             @if(count($post->likes)>0)
@@ -343,6 +365,7 @@
                             //  }
                             ?>
                     </div><!-- /.well -->
+                    <a href="{{ route('study') }}">≫Vue</a>
             </div><!-- /#sidebar -->
 
 
@@ -355,5 +378,8 @@
                 <p>Copyright&copy; All rights reserved.</p>
             </div>
         </div><!-- /.container -->
+        
+        <script src="js/app.js"></script>
+
     </body>
 </html>

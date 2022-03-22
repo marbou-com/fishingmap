@@ -91,9 +91,9 @@
                     <span class="card-description subtle">
                       {{ $user->description }}
                     </span>
-                    <div class="card-read">
+                    <div class="card-read" id="app">
 
-                      @if(!$isFollow)
+                      {{-- @if(!$isFollow)
                       <!---->
                       <form action="{{route('follows.store')}}" method="POST">
                         @csrf
@@ -111,7 +111,13 @@
                         <button class="btn btn-default" btn-type="follow" type="submit">フォローはずす</button>
         
                       </form>
-                      @endif
+                      @endif --}}
+
+                      <div >
+                        <follow-component
+                        :user="{{ json_encode($user->id)}}"
+                    ></follow-component>
+                    </div> 
 
                     </div>
                   </div>
@@ -142,6 +148,8 @@
           </div>
 
         </div><!--container-->
+        <script src="../js/app.js"></script>
+
     </body>
 </html>
 

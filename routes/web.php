@@ -39,3 +39,18 @@ Route::group(['middleware' => 'auth'], function () {//認証された人だけ�
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/json/{s_word}', 'HomeController@mapinfo')->name('json');//マップ
+
+//いいね
+Route::get('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
+Route::get('posts/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
+Route::get('posts/{post}/countfavorites', 'FavoriteController@count');
+Route::get('posts/{post}/hasfavorites', 'FavoriteController@hasfavorite');
+
+//フォロー
+Route::get('users/{user}/follows', 'followController@store')->name('follows');
+Route::get('users/{user}/unfollows', 'followController@destroy')->name('unfollows');
+//Route::get('users/{user}/countfavorites', 'followController@count');
+Route::get('users/{user}/hasfavorites', 'followController@hasfavorite');
+
+
+Route::get('/vue', 'studyController@index')->name('study');

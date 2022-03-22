@@ -30,6 +30,8 @@ class IndexController extends Controller
             $login_user=\Auth::user()->name;
             $login_id=\Auth::user()->id;
 
+           
+
             return view('pages.index', compact('posts'))
             ->with('login_id', $login_id)
             ->with('login_user', $login_user)

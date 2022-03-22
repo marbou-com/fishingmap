@@ -14,20 +14,8 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet" /><!--画像拡大-->
-        <script src="{{ asset('js/lightbox-2.6.min.js') }}"></script><!--画像拡大-->
-        <script src="{{Consts::MAPKEY_NAME}}" async defer></script>
-        <script>
-	        $(function () {
-			    //削除確認ダイアログ
-			    $(".btn").click(function() {
-			        if($(this).attr("name")=="del"){
-				        var flag = confirm ( "選択された投稿情報を削除しますか？");
-				        return flag;
-			        }
-			    });
-            });
-        </script>
+
+
     </head>
     <body>
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -67,93 +55,103 @@
             </div><!-- /.container -->
         </div><!-- /.navbar -->
 
-        <div class="container">
 
-        </div><!-- /.container -->
 
-        <div class="container">
-          <div class="row">
-            <div class="col" style="display:flex;/* flexbox */justify-content:center; /* 水平方向 */align-items: center; /* 垂直方向 */">
+        <div class="container" id="app">
+          <div class="row" >
+            <div  class="col" style="display:flex;" >
 
 
 
               @foreach($users as $user)
 
 
-              <div class="col-md-12">
-              <div class="card-container">
-                <div class="card u-clearfix">
-                  <div class="card-body">
-                    <span class="card-author subtle">
-                      <div>
-                        {{ count($user->posts) }}投稿
-                        {{ $fCnt_t }}フォロワー
-                        {{ $fCnt_f }}フォロー
-                      </div> 
-                    </span>
-                    <h2 class="card-title">{{ $user->name }}</h2>
-                    <span class="card-description subtle">
-                      {{ $user->description }}
-                    </span>
-                    <div class="card-read">
+                <div class="col-md-12" >
+                <div class="card-container">
+                  <div class="card u-clearfix">
+                    <div class="card-body" >
+                        <span class="card-author subtle">
+                          <div>
+                            {{ count($user->posts) }}投稿
+                            {{ $fCnt_t }}フォロワー
+                            {{ $fCnt_f }}フォロー
+                          </div> 
+                        </span>
+                        <h2 class="card-title">{{ $user->name }}</h2>
+                        <span class="card-description subtle">
+                          {{ $user->description }}
+                        </span>
+                        <div class="card-read" >
 
 
 
-                      @php
-                      $isFollow=0;
-                      @endphp
+                        {{-- @php
+                        $isFollow=0;
+                        @endphp
 
-                      @foreach($user->users_to as $u)
-                        @if($u->from_follow_id==Auth::user()->id && $u->to_follow_id==$user->id)
-                          @php
-                            $isFollow=1;
-                            break;
+                        @foreach($user->users_to as $u)
+                          @if($u->from_follow_id==Auth::user()->id && $u->to_follow_id==$user->id)
+                            @php
+                              $isFollow=1;
+                              break;
+                            @endphp
+                          @else
+                            @php
+                              $isFollow=0;
                           @endphp
-                        @else
-                          @php
-                            $isFollow=0;
-                         @endphp
-                        @endif
-                      @endforeach
+                          @endif
+                        @endforeach --}}
 
 
 
-                        @if($isFollow==0)
-                          <!---->
-                          <form action="{{route('follows.store')}}" method="POST">
-                            @csrf
-                            <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
-                            <input type="hidden" name="is_follow" value="1">
-                            <button class="btn btn-default" btn-type="follow" type="submit">フォローする</button>
-            
-                          </form>
+                          {{-- @if($isFollow==0)
+                            <form action="{{route('follows.store')}}" method="POST">
+                              @csrf
+                              <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
+                              <input type="hidden" name="is_follow" value="1">
+                              <button class="btn btn-default" btn-type="follow" type="submit">フォローする</button>
+              
+                            </form>
 
-                        @else
-                          <form action="{{route('follows.destroy' , ['follow'=>$user->id])}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
-                            <input type="hidden" name="is_follow" value="0">
-                            <button class="btn btn-default" btn-type="follow" type="submit">フォローはずす</button>
-            
-                          </form>
-                        @endif
+                          @else
+                            <form action="{{route('follows.destroy' , ['follow'=>$user->id])}}" method="POST">
+                              @csrf
+                              @method('delete')
+                              <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
+                              <input type="hidden" name="is_follow" value="0">
+                              <button class="btn btn-default" btn-type="follow" type="submit">フォローはずす</button>
+              
+                            </form>
+                          @endif --}}
+                          
+                          <div >
+                            <follow-component
+                            :user="{{ json_encode($user->id)}}"
+                          ></follow-component>
+                          </div> 
 
 
+                        </div>
                     </div>
+                    <img src="{{ asset('storage/images/img/'.$user->logo_url) }}" alt="" class="img-circle" style="width:30%"/>
                   </div>
-                  <img src="{{ asset('storage/images/img/'.$user->logo_url) }}" alt="" class="img-circle" style="width:30%"/>
-                </div>
-                <div class="card-shadow"></div>
+                  
+                  <div class="card-shadow"></div>
 
-             </div>
+              </div>
+            </div>
+          </div>
+
              @endforeach
         </div>
 
+      </div>
+    </div>
 
 
         
-        
+    <script src="./js/app.js"></script>
+
     </body>
 </html>
 
