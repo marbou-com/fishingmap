@@ -47,10 +47,10 @@ Route::get('posts/{post}/countfavorites', 'FavoriteController@count');
 Route::get('posts/{post}/hasfavorites', 'FavoriteController@hasfavorite');
 
 //フォロー
-Route::get('users/{user}/follows', 'followController@store')->name('follows');
-Route::get('users/{user}/unfollows', 'followController@destroy')->name('unfollows');
-//Route::get('users/{user}/countfavorites', 'followController@count');
-Route::get('users/{user}/hasfavorites', 'followController@hasfavorite');
+Route::get('users/{user}/follows', 'FollowController@store')->name('follows');
+Route::get('users/{user}/unfollows', 'FollowController@destroy')->name('unfollows');
+//Route::get('users/{user}/countfavorites', 'FollowController@count');
+Route::get('users/{user}/hasfavorites', 'FollowController@hasfavorite');
 
 
 Route::get('/vue', 'studyController@index')->name('study');
