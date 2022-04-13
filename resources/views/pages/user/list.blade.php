@@ -30,7 +30,7 @@
                 </div><!-- /.navbar-header -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('posts.create') }}" target="">投稿</a></li>
+                        <li><a href="{{ route('posts.create') }}" target="">投稿する</a></li>
                         <li><a href="{{ route( 'users.show' ,['user' => $login_id]) }}" target="">登録データ一覧</a></li>
                         
                     </ul>
@@ -62,7 +62,7 @@
             <div  class="col" style="display:flex;" >
 
 
-
+ 
               @foreach($users as $user)
 
 
@@ -81,57 +81,13 @@
                         <span class="card-description subtle">
                           {{ $user->description }}
                         </span>
+
                         <div class="card-read" >
-
-
-
-                        {{-- @php
-                        $isFollow=0;
-                        @endphp
-
-                        @foreach($user->users_to as $u)
-                          @if($u->from_follow_id==Auth::user()->id && $u->to_follow_id==$user->id)
-                            @php
-                              $isFollow=1;
-                              break;
-                            @endphp
-                          @else
-                            @php
-                              $isFollow=0;
-                          @endphp
-                          @endif
-                        @endforeach --}}
-
-
-
-                          {{-- @if($isFollow==0)
-                            <form action="{{route('follows.store')}}" method="POST">
-                              @csrf
-                              <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
-                              <input type="hidden" name="is_follow" value="1">
-                              <button class="btn btn-default" btn-type="follow" type="submit">フォローする</button>
-              
-                            </form>
-
-                          @else
-                            <form action="{{route('follows.destroy' , ['follow'=>$user->id])}}" method="POST">
-                              @csrf
-                              @method('delete')
-                              <input type="hidden" name="to_follow_id" value="{{ $user->id }}">
-                              <input type="hidden" name="is_follow" value="0">
-                              <button class="btn btn-default" btn-type="follow" type="submit">フォローはずす</button>
-              
-                            </form>
-                          @endif --}}
-                          
-                          <div >
-                            <follow-component
-                            :user="{{ json_encode($user->id)}}"
-                          ></follow-component>
+                          <div>
+                            <follow-component :user="{{ json_encode($user->id)}}"></follow-component>
                           </div> 
-
-
                         </div>
+
                     </div>
                     <img src="{{ asset('storage/images/img/'.$user->logo_url) }}" alt="" class="img-circle" style="width:30%"/>
                   </div>

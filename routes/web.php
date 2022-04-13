@@ -54,3 +54,4 @@ Route::get('users/{user}/hasfavorites', 'followController@hasfavorite');
 
 
 Route::get('/vue', 'studyController@index')->name('study');
+Route::get('/vue2', 'studyController@index2')->name('study2');

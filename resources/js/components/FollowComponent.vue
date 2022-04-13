@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        props: ['user'],
+        props: ['user'],//JSON形式でPHPから送られてきたデータ
         data() {
             return {
                 //count: "",
@@ -20,6 +20,7 @@
     
         mounted () {
             this.hasfavorites();
+            //console.log(this.user);
             //this.countfavorites(); //追加
 
         },

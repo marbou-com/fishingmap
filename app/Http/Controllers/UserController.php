@@ -23,7 +23,7 @@ class UserController extends Controller
         $users="";
         if(Auth::check()){//ログインしたか
             $user = Auth::user();
-            $users = User::where('id', '<>' , $user->id)->get();
+            $users = User::where('id', '<>' , $user->id)->oldest()->get();
 
             $login_user=Auth::user()->name;
             $login_id=Auth::user()->id;

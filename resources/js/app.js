@@ -7,6 +7,7 @@ import { createApp } from 'vue';
 import LikeComponent from './components/LikeComponent.vue'
 import FollowComponent from './components/FollowComponent.vue'
 //import VueComponent from './components/VueComponent.vue'
+//import Vue2Component from './components/Vue2Component.vue'
 
 
 
@@ -14,7 +15,8 @@ createApp({
     components:{
         LikeComponent,
         FollowComponent,
-        //VueComponent
+        //VueComponent,
+        //Vue2Component,
     }
     
 }).mount('#app')

@@ -132,14 +132,19 @@
                         <li><a href="{{ route('posts.create') }}" target="">投稿する</a></li>
                         <li><a href="{{ route( 'users.show' ,['user' => $login_id]) }}" target="">登録データ一覧</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                            {{ __('ログアウト') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                            </form>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">こんにちは {{ $login_user }} さん <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                  {{ __('ログアウト') }}
+                                  </a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                  </form>
+                                </li>
+                            </ul>
                         </li>                  
                     @endauth
                     @guest
@@ -365,7 +370,8 @@
                             //  }
                             ?>
                     </div><!-- /.well -->
-                    <a href="{{ route('study') }}">≫Vue</a>
+                    {{-- <a href="{{ route('study') }}">≫Vue</a>
+                    <a href="{{ route('study2') }}">≫Vue2</a> --}}
             </div><!-- /#sidebar -->
 
 
